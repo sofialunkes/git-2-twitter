@@ -6,5 +6,9 @@ const routes:Routes = [
     {
         path: '',
         component: LoginG2tComponent
+    },
+    {
+        path:'home',
+        component: HomeComponent
     }
 ]
