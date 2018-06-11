@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { LoginG2tComponent } from './login-g2t/login-g2t.component';
+import { G2tLoginComponent } from './g2t-login/g2t-login.component';
 import { HomeComponent } from './home/home.component';
 import { G2tMaterialModule } from './g2t-material/g2t-material.module';
 
@@ -14,7 +14,7 @@ import { routing } from './g2t-routes';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginG2tComponent,
+    G2tLoginComponent,
     HomeComponent,
   ],
   imports: [

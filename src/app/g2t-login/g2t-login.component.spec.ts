@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginG2tComponent } from './login-g2t.component';
+import { G2tLoginComponent } from './g2t-login.component';
 
-describe('LoginG2tComponent', () => {
-  let component: LoginG2tComponent;
-  let fixture: ComponentFixture<LoginG2tComponent>;
+describe('G2tLoginComponent', () => {
+  let component: G2tLoginComponent;
+  let fixture: ComponentFixture<G2tLoginComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginG2tComponent ]
+      declarations: [ G2tLoginComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginG2tComponent);
+    fixture = TestBed.createComponent(G2tLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
