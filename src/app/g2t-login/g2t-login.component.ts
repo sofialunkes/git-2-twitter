@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
-
+import { FormControl, Validators, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'g2t-login',
@@ -10,30 +8,44 @@ import { ErrorStateMatcher } from '@angular/material/core';
 })
 
 export class G2tLoginComponent implements OnInit {
-  loginFormControl:FormGroup;
-  matcher =  new MyErrorStateMatcher();
+  loginForm: FormGroup;
+  email: FormControl;
+  password: FormControl;
+  hide = true;
 
   constructor() { }
 
   ngOnInit() {
-    this.loginFormControl = new FormGroup({
-      email: new FormControl('',[
-        Validators.required,
-        Validators.email,
-      ]),
-      password: new FormControl('',[
-        Validators.minLength(6),
-        Validators.required
-      ])
+    this.createFormControls();
+    this.createForm();
+  }
+
+  createFormControls() {
+    this.email = new FormControl('', [
+      Validators.required,
+      Validators.email,
+    ]);
+    this.password = new FormControl('', [
+      Validators.minLength(6),
+      Validators.required
+    ])
+  }
+
+  createForm() {
+    this.loginForm = new FormGroup({
+      email: this.email,
+      password: this.password
     });
   }
-
 }
 
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || isSubmitted));
-  }
-}
+
+// import * as moment from 'moment';
+// import 'moment-timezone';
+
+// export class DateFormatFilter {
+//   formatMomentToScheduler(obj) {
+//     const setdate = moment.tz(obj, 'America/Danmarkshavn');
+//     return setdate.format('YYYY-MM-DDTHH:mm:ss.SSSZ');
+//   }
+// }
